@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="match_parent" android:layout_width="match_parent">
+
+    <item android:drawable="@color/colorPrimary" />
+
+    <item android:gravity="center" android:layout_width="50dp" android:layout_height="50dp">
+        <bitmap android:src="@drawable/qna"
+            android:gravity="fill_horizontal|fill_vertical" />
+
+    </item>
+
+</layer-list>
