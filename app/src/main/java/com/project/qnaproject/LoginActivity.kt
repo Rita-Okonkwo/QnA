@@ -8,10 +8,11 @@ import android.view.View
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.fragment_question.*
 
 class LoginActivity : AppCompatActivity() {
     lateinit var mAuth: FirebaseAuth
-    lateinit var email:EditText
+    lateinit var email: EditText
     lateinit var password: EditText
     lateinit var signin_btn: Button
     lateinit var progressBar: ProgressBar
@@ -24,19 +25,24 @@ class LoginActivity : AppCompatActivity() {
 
         email = findViewById(R.id.email_in)
         password = findViewById(R.id.password_in)
-        val forgot_txt : TextView = findViewById(R.id.textView)
+        val forgot_txt: TextView = findViewById(R.id.textView)
         signin_btn = findViewById(R.id.login_btn)
-        val dont_txt : TextView = findViewById(R.id.textView2)
+        val dont_txt: TextView = findViewById(R.id.textView2)
         progressBar = findViewById(R.id.signin_progress)
 
-        dont_txt.setOnClickListener{
+        dont_txt.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
+        forgot_txt.setOnClickListener {
+            val intent = Intent(this, ResetPassword::class.java)
             startActivity(intent)
         }
 
         val email_txt = email.text.toString()
         val password_txt = password.text.toString()
-        signin_btn.setOnClickListener{
+        signin_btn.setOnClickListener {
             loginUser()
         }
 
@@ -44,11 +50,12 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if(mAuth.currentUser != null){
+        if (mAuth.currentUser != null) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
+
 
     private fun loginUser() {
         val email_reg = email.text.toString()
@@ -74,8 +81,10 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     progressBar.visibility = View.GONE
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
                 // ...

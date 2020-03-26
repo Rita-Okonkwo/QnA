@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_title">
         <action
             android:id="@+id/action_titleFragment_to_questionFragment2"
-            app:destination="@id/questionFragment2" />
+            app:destination="@id/questionFragment2"
+            app:popUpTo="@+id/titleFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -23,5 +24,42 @@
         android:id="@+id/questionFragment2"
         android:name="com.project.qnaproject.QuestionFragment"
         android:label="Questions"
-        tools:layout="@layout/fragment_question" />
+        tools:layout="@layout/fragment_question">
+        <action
+            android:id="@+id/action_questionFragment2_to_gameOverFragment"
+            app:destination="@id/gameOverFragment"
+            app:popUpTo="@+id/questionFragment2"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_questionFragment2_to_gameWonFragment"
+            app:destination="@id/gameWonFragment"
+            app:popUpTo="@+id/questionFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.project.qnaproject.GameOverFragment"
+        android:label="Result"
+        tools:layout="@layout/fragment_game_over">
+        <action
+            android:id="@+id/action_gameOverFragment_to_questionFragment2"
+            app:destination="@id/questionFragment2"
+            app:popUpTo="@+id/titleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameWonFragment"
+        android:name="com.project.qnaproject.GameWonFragment"
+        android:label="Result"
+        tools:layout="@layout/fragment_game_won">
+        <argument
+            android:name="points"
+            app:argType="integer" />
+        <argument
+            android:name="question_size"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_gameWonFragment_to_questionFragment2"
+            app:destination="@id/questionFragment2"
+            app:popUpTo="@+id/titleFragment" />
+    </fragment>
 </navigation>

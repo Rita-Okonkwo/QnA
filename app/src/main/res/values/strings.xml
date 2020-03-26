@@ -11,6 +11,12 @@
     <string name="welcome">Welcome to QnA</string>
     <string name="play">play</string>
     <string name="about">About</string>
-    <string name="about_text">QnA is a trivia game to test your general knowledge on certain things.\n\nGo on and test your knowledge</string>
+    <string name="about_text">QnA is a trivia game to test your general knowledge about Africa.\n\nGo on and test your knowledge</string>
     <string name="points">Points:</string>
+    <string name="game_over">Hey Champ! You scored below 0</string>
+    <string name="try_again">Try Again</string>
+    <string name="log_out">Log Out</string>
+    <string name="reset">Reset</string>
+    <string name="game_win_txt">Hey Champ! You scored</string>
+    <string name="play_again">play again</string>
 </resources>
