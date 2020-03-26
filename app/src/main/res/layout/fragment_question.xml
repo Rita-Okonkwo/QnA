@@ -52,7 +52,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="Question"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,28 +72,24 @@
                 android:id="@+id/firstAnswer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/secondAnswer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/thirdAnswer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/fourthAnswer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton"
                 android:textSize="18sp" />
         </RadioGroup>
 
@@ -111,6 +106,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/question_group" />
+
+        <ProgressBar
+            android:id="@+id/question_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/submit_btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

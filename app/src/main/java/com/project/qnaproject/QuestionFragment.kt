@@ -30,6 +30,7 @@ class QuestionFragment : Fragment() {
     lateinit var body: qa
     lateinit var submit_btn: Button
     lateinit var radioGroup: RadioGroup
+    lateinit var progressBar: ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,11 +57,15 @@ class QuestionFragment : Fragment() {
         submit_btn = view.findViewById(R.id.submit_btn)
         radioGroup = view.findViewById(R.id.question_group)
         point = view.findViewById(R.id.points_value)
+        progressBar = view.findViewById(R.id.question_progress)
+
+        progressBar.visibility = View.VISIBLE
 
         val characterService = QuestionService.Factory.create()
         val qas: Call<com.project.qnaproject.qa> = characterService.getQuestionsAndAnswers()
         qas.enqueue(object : Callback<com.project.qnaproject.qa> {
             override fun onFailure(call: Call<com.project.qnaproject.qa>, t: Throwable) {
+                progressBar.visibility = View.GONE
                 Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
             }
 
@@ -68,6 +73,7 @@ class QuestionFragment : Fragment() {
                 call: Call<com.project.qnaproject.qa>,
                 response: Response<com.project.qnaproject.qa>
             ) {
+                progressBar.visibility = View.GONE
                 if (savedInstanceState == null) {
                     questionss = response.body()!!.questions
                 }
